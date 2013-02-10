@@ -37,13 +37,13 @@ Partial Class Graphe_Fenetre
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'Graphe
+        'Graphe_Fenetre
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(940, 478)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Name = "Graphe"
+        Me.Name = "Graphe_Fenetre"
         Me.Text = "Graphe"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

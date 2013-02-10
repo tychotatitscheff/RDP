@@ -1,0 +1,1 @@
+dot "D:\Git\RDP\Dot\reaction nucleaire.dot" -Tpng -o "D:\Git\RDP\Dot\reaction.png"

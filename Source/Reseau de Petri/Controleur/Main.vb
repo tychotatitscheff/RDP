@@ -12,7 +12,7 @@ Imports System.Xml
 ''' <remarks></remarks>
 Public Class Main
 #Region "Attributs privés" 'déclaration des attributs privés de la classe main
-    Private WithEvents ReseauDePetri As New Reseau()
+    Public WithEvents ReseauDePetri As New Reseau()
 #End Region
 #Region "Gestion du log" 'Gestion de l'affichage des évènements sur la console
     Private Sub AffichageRTB(ByVal sender As Object, ByVal e As ChangementReseauEventArgs) Handles ReseauDePetri.ReseauChange
@@ -33,6 +33,9 @@ Public Class Main
     Private Sub MAJ_DataBindingList(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load, B_AddPlace.Click, B_AddTrans.Click, Me.MajDataBinding
         Me.CB_place.DataSource = ReseauDePetri.TableauPlace
         Me.CB_trans.DataSource = ReseauDePetri.TableauTransition
+    End Sub
+    Private Sub Maj_Treeview(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChB_verbose.CheckedChanged
+
     End Sub
 #End Region
 #Region "Entrée des paramètres" 'méthode permettant de gérer la relation entre les composants de l'intérface et l'entrée des données de la simulation
@@ -62,6 +65,23 @@ Public Class Main
             ReseauDePetri.TableauArc.Add(New Arc(CType(CB_place.SelectedItem, Place), CType(CB_trans.SelectedItem, Transition), sens))
         End If
         Maj_Treeview()
+    End Sub
+    Private Sub ChB_Timer_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChB_Timer.CheckedChanged
+        If ChB_Timer.Checked = True Then
+            TBK.Visible = True
+            Label8.Visible = True
+        Else
+            TBK.Visible = False
+            Label8.Visible = False
+        End If
+    End Sub
+
+    Private Sub TBK_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBK.Scroll
+        If Int(TBK.Value) = 1 Then
+            Label8.Text = CStr(Int(TBK.Value)) & " milliseconde"
+        Else
+            Label8.Text = CStr(Int(TBK.Value)) & " millisecondes"
+        End If
     End Sub
 #End Region
 #Region "Simulation"
@@ -179,9 +199,7 @@ Public Class Main
         ReseauDePetri.Maj_TransitionValidable()
     End Sub
 #End Region
-    Private Sub Maj_Treeview(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChB_verbose.CheckedChanged
-
-    End Sub
+#Region "Graphviz"
     Private Sub ChB_Graph_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChB_Graph.CheckedChanged 'afficher le reseau sur Graphviz si voulu, ou un message indiquant que l'on doit installer graphviz pour visualiser la simulation
         If Directory.Exists(Environ("ProgramFiles(x86)") & "\Graphviz 2.28") Then
             Graphe_Fenetre.Show(Me)
@@ -195,22 +213,5 @@ Public Class Main
             Graphe_Fenetre.ExecuterDot()
         End If
     End Sub
-
-    Private Sub ChB_Timer_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChB_Timer.CheckedChanged
-        If ChB_Timer.Checked = True Then
-            TBK.Visible = True
-            Label8.Visible = True
-        Else
-            TBK.Visible = False
-            Label8.Visible = False
-        End If
-    End Sub
-
-    Private Sub TBK_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TBK.Scroll
-        If Int(TBK.Value) = 1 Then
-            Label8.Text = CStr(Int(TBK.Value)) & " milliseconde"
-        Else
-            Label8.Text = CStr(Int(TBK.Value)) & " millisecondes"
-        End If
-    End Sub
+#End Region
 End Class

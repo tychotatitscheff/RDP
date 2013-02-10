@@ -1,0 +1,50 @@
+digraph ReseauPetri{
+size="105,10"
+spline=true; rankdir=LR;
+node[fontsize=9]
+40041277 [shape = box, color = black, label = "ppI\n non validable"];
+64844482 [shape = box, color = black, label = "ppII\n non validable"];
+46729429 [shape = box, color = black, label = "7Be\n non validable"];
+17911681 [shape = box, color = black, label = "7Li\n non validable"];
+26987408 [shape = box, color = black, label = "pp\n non validable"];
+41560081 [shape = box, color = black, label = "couplage\n non validable"];
+38496415 [shape = box, color = black, label = "pe\n non validable"];
+10923418 [shape = box, color = black, label = "desintegration\n non validable"];
+49652976 [shape = ellipse, color = black, label = "7Be\n 0"];
+44115416 [shape = ellipse, color = black, label = "4He\n 0"];
+61494432 [shape = ellipse, color = black, label = "7Li\n 0"];
+16578980 [shape = ellipse, color = black, label = "E-\n 0"];
+14993092 [shape = ellipse, color = black, label = "P+\n 0"];
+720107 [shape = ellipse, color = black, label = "E+\n 0"];
+6480969 [shape = ellipse, color = black, label = "3He\n 0"];
+58328727 [shape = ellipse, color = black, label = "gamma\n 0"];
+55196503 [shape = ellipse, color = black, label = "neutrons\n 0"];
+27006480 [shape = ellipse, color = black, label = "neutrino\n 0"];
+41731733 [shape = ellipse, color = black, label = "2H\n 0"];
+40041277->44115416[label="1"];
+64844482->49652976[label="1"];
+49652976->46729429[label="1"];
+16578980->46729429[label="1"];
+46729429->61494432[label="1"];
+44115416->64844482[label="1"];
+40041277->14993092[label="2"];
+6480969->64844482[label="1"];
+17911681->44115416[label="2"];
+41560081->16578980[label="1"];
+41560081->720107[label="1"];
+14993092->17911681[label="1"];
+14993092->26987408[label="2"];
+14993092->38496415[label="1"];
+26987408->720107[label="1"];
+10923418->720107[label="1"];
+58328727->41560081[label="1"];
+10923418->55196503[label="1"];
+10923418->27006480[label="2"];
+38496415->58328727[label="1"];
+38496415->6480969[label="1"];
+26987408->41731733[label="1"];
+26987408->27006480[label="1"];
+27006480->10923418[label="1"];
+41731733->38496415[label="1"];
+overlap= false
+}
