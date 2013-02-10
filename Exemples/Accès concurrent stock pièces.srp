@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Reseau xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/RDP">
+	<TableauArcRentrant />
+	<TableauArcSortant />
+	<TableauTransitionValidable />
+	<Tableau_des_places>
+		<Place z:Id="i1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+			<Nom_de_la_place>P1</Nom_de_la_place>
+			<Nombre_de_Jeton>1</Nombre_de_Jeton>
+		</Place>
+		<Place z:Id="i2" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+			<Nom_de_la_place>P2</Nom_de_la_place>
+		</Place>
+		<Place z:Id="i3" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+			<Nom_de_la_place>P3</Nom_de_la_place>
+			<Nombre_de_Jeton>1</Nombre_de_Jeton>
+		</Place>
+		<Place z:Id="i4" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+			<Nom_de_la_place>P4</Nom_de_la_place>
+			<Nombre_de_Jeton>2</Nombre_de_Jeton>
+		</Place>
+		<Place z:Id="i5" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+			<Nom_de_la_place>P5</Nom_de_la_place>
+			<Nombre_de_Jeton>1</Nombre_de_Jeton>
+		</Place>
+		<Place z:Id="i6" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+			<Nom_de_la_place>P6</Nom_de_la_place>
+		</Place>
+	</Tableau_des_places>
+	<Tableau_des_transitions>
+		<Transition z:Id="i7" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+			<Nom_de_la_transition>T1</Nom_de_la_transition>
+		</Transition>
+		<Transition z:Id="i8" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+			<Nom_de_la_transition>T2</Nom_de_la_transition>
+		</Transition>
+		<Transition z:Id="i9" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+			<Nom_de_la_transition>T3</Nom_de_la_transition>
+		</Transition>
+		<Transition z:Id="i10" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+			<Nom_de_la_transition>T4</Nom_de_la_transition>
+		</Transition>
+	</Tableau_des_transitions>
+	<Tableau_des_arcs>
+		<Arc>
+			<Nom_de_la_place z:Ref="i1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Nom_de_la_transition z:Ref="i7" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Multiplicite>1</Multiplicite>
+			<Sens>TransitionVersPlace</Sens>
+		</Arc>
+		<Arc>
+			<Nom_de_la_place z:Ref="i1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Nom_de_la_transition z:Ref="i8" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Multiplicite>1</Multiplicite>
+			<Sens>PlaceVersTransition</Sens>
+		</Arc>
+		<Arc>
+			<Nom_de_la_place z:Ref="i2" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Nom_de_la_transition z:Ref="i8" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Multiplicite>1</Multiplicite>
+			<Sens>TransitionVersPlace</Sens>
+		</Arc>
+		<Arc>
+			<Nom_de_la_place z:Ref="i2" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Nom_de_la_transition z:Ref="i7" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Multiplicite>1</Multiplicite>
+			<Sens>PlaceVersTransition</Sens>
+		</Arc>
+		<Arc>
+			<Nom_de_la_place z:Ref="i3" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Nom_de_la_transition z:Ref="i8" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Multiplicite>1</Multiplicite>
+			<Sens>PlaceVersTransition</Sens>
+		</Arc>
+		<Arc>
+			<Nom_de_la_place z:Ref="i4" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Nom_de_la_transition z:Ref="i8" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Multiplicite>1</Multiplicite>
+			<Sens>TransitionVersPlace</Sens>
+		</Arc>
+		<Arc>
+			<Nom_de_la_place z:Ref="i4" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Nom_de_la_transition z:Ref="i9" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Multiplicite>1</Multiplicite>
+			<Sens>PlaceVersTransition</Sens>
+		</Arc>
+		<Arc>
+			<Nom_de_la_place z:Ref="i3" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Nom_de_la_transition z:Ref="i9" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Multiplicite>1</Multiplicite>
+			<Sens>TransitionVersPlace</Sens>
+		</Arc>
+		<Arc>
+			<Nom_de_la_place z:Ref="i5" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Nom_de_la_transition z:Ref="i10" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Multiplicite>1</Multiplicite>
+			<Sens>PlaceVersTransition</Sens>
+		</Arc>
+		<Arc>
+			<Nom_de_la_place z:Ref="i6" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Nom_de_la_transition z:Ref="i10" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Multiplicite>1</Multiplicite>
+			<Sens>TransitionVersPlace</Sens>
+		</Arc>
+		<Arc>
+			<Nom_de_la_place z:Ref="i6" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Nom_de_la_transition z:Ref="i9" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Multiplicite>1</Multiplicite>
+			<Sens>PlaceVersTransition</Sens>
+		</Arc>
+		<Arc>
+			<Nom_de_la_place z:Ref="i5" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Nom_de_la_transition z:Ref="i9" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Multiplicite>1</Multiplicite>
+			<Sens>TransitionVersPlace</Sens>
+		</Arc>
+	</Tableau_des_arcs>
+</Reseau>
