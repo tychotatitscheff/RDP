@@ -289,9 +289,10 @@ Public Class Reseau
         End If
     End Sub
     Public Function GenererDot() As String
+        Dim dpi As Single = Main.getDPI
         Dim dot As String = ""
         dot = dot & "digraph ReseauPetri{" & vbCrLf
-        dot = dot & "size=""105,10""" & vbCrLf & "spline=true; rankdir=LR;" & vbCrLf & "node[fontsize=9]" & vbCrLf
+        dot = dot & "size=""" & Int(Graphe_Fenetre.PictureBox1.Size.Width) & "," & (Graphe_Fenetre.PictureBox1.Size.Width) & """!" & vbCrLf & "spline=true; rankdir=LR;" & vbCrLf & "node[fontsize=9]" & vbCrLf
         For Each trans In TableauTransition
             If TableauTransitionValidable.Contains(trans) Then
                 dot = dot & CStr(trans.GetHashCode) & " [shape = box, color = red, label = """ & trans.nom & "\n validable""];" & vbCrLf

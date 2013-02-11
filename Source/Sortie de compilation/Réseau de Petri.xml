@@ -6,11 +6,19 @@ RéseaudePetri
 </name>
 </assembly>
 <members>
-<member name="T:RDP.ChangementReseauEventArgs">
+<member name="T:RDP.Transition">
 	<summary>
- Cette classe permet la création d'un nouvel évenement.
+ La classe transition représente les transitions dans un réseau de pétri.
+ Elle ne comporte qu'un seul attribut privé, son nom.
  </summary>
-	<remarks></remarks>
+	<remarks>Pour plus d'information sur la partie théorique : http://fr.wikipedia.org/wiki/R%C3%A9seau_de_Petri </remarks>
+</member><member name="T:RDP.Arc">
+	<summary>
+ Cette classe définit les arcs orientés reliant place et transition.
+ Elle comporte trois éléments, une place, une transition et un sens ce qui impose la création d'une enumération "sens".
+ Nous avons fait le choix d'implémenter la multiplicité et ainsi de rajouter un attribut multiplicité.
+ </summary>
+	<remarks>Pour plus d'information sur la partie théorique : http://fr.wikipedia.org/wiki/R%C3%A9seau_de_Petri </remarks>
 </member><member name="P:RDP.My.Resources.Resources.ResourceManager">
 	<summary>
   Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
@@ -24,13 +32,6 @@ RéseaudePetri
 	<summary>
   Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
 </summary>
-</member><member name="T:RDP.Arc">
-	<summary>
- Cette classe définit les arcs orientés reliant place et transition.
- Elle comporte trois éléments, une place, une transition et un sens ce qui impose la création d'une enumération "sens".
- Nous avons fait le choix d'implémenter la multiplicité et ainsi de rajouter un attribut multiplicité.
- </summary>
-	<remarks>Pour plus d'information sur la partie théorique : http://fr.wikipedia.org/wiki/R%C3%A9seau_de_Petri </remarks>
 </member><member name="F:RDP.Reseau.T_Place">
 	<remarks>L'utilisation de BindingList se justifie pour syncroniser la liste des places avec le combobox de la fenètre principale</remarks>
 </member><member name="F:RDP.Reseau.T_Transition">
@@ -41,21 +42,20 @@ RéseaudePetri
  Elle comprend également la gestion des évenements pour afficher le processus de simulation.
  </summary>
 	<remarks>Pour plus d'information sur la partie théorique : http://fr.wikipedia.org/wiki/R%C3%A9seau_de_Petri </remarks>
-</member><member name="T:RDP.Place">
+</member><member name="T:RDP.ChangementReseauEventArgs">
 	<summary>
- La classe Place represente les place dans le réseau de Pétri.
- Elle a un nom et un nombre de jetons.
+ Cette classe permet la création d'un nouvel évenement.
  </summary>
-	<remarks>Pour plus d'information sur la partie théorique : http://fr.wikipedia.org/wiki/R%C3%A9seau_de_Petri </remarks>
+	<remarks></remarks>
 </member><member name="T:RDP.Main">
 	<summary>
  Cette classe réalise à la fois la vue et le controleur principal de l'application.
  </summary>
 	<remarks></remarks>
-</member><member name="T:RDP.Transition">
+</member><member name="T:RDP.Place">
 	<summary>
- La classe transition représente les transitions dans un réseau de pétri.
- Elle ne comporte qu'un seul attribut privé, son nom.
+ La classe Place represente les place dans le réseau de Pétri.
+ Elle a un nom et un nombre de jetons.
  </summary>
 	<remarks>Pour plus d'information sur la partie théorique : http://fr.wikipedia.org/wiki/R%C3%A9seau_de_Petri </remarks>
 </member>

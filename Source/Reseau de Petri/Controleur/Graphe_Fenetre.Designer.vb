@@ -31,9 +31,10 @@ Partial Class Graphe_Fenetre
         Me.PictureBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox1.Location = New System.Drawing.Point(13, 13)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(915, 453)
+        Me.PictureBox1.Size = New System.Drawing.Size(939, 453)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
@@ -41,7 +42,7 @@ Partial Class Graphe_Fenetre
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(940, 478)
+        Me.ClientSize = New System.Drawing.Size(964, 478)
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "Graphe_Fenetre"
         Me.Text = "Graphe"

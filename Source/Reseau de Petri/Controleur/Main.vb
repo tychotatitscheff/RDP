@@ -89,6 +89,8 @@ Public Class Main
         RTB_Console.AppendText(vbCrLf & "**** Début de la simulation ****" & vbCrLf)
         ReseauDePetri.GenererEtat("Initial")
         ReseauDePetri.EnregistrerDot()
+        Graphe_Fenetre.ExecuterDot()
+        Graphe_Fenetre.ActualiserGraphe()
         RTB_Console.AppendText(vbCrLf)
         RTB_Console.SelectionIndent = 20
         ReseauDePetri.Maj_TransitionValidable()
@@ -200,17 +202,34 @@ Public Class Main
     End Sub
 #End Region
 #Region "Graphviz"
+    Public Function getDPI() As Single
+        Dim dspGraphics As Graphics
+        dspGraphics = Me.CreateGraphics
+        Return dspGraphics.DpiX
+    End Function
     Private Sub ChB_Graph_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChB_Graph.CheckedChanged 'afficher le reseau sur Graphviz si voulu, ou un message indiquant que l'on doit installer graphviz pour visualiser la simulation
-        If Directory.Exists(Environ("ProgramFiles(x86)") & "\Graphviz 2.28") Then
-            Graphe_Fenetre.Show(Me)
-        ElseIf ChB_Graph.Checked = True Then
-            MsgBox("Merci d'installer Graphviz 2.8 dans ProgramFiles", MsgBoxStyle.Critical)
-            ChB_Graph.Checked = False
+        If ChB_Graph.Checked = True Then
+            If Directory.Exists(Environ("ProgramFiles(x86)") & "\Graphviz 2.28") Then
+                Graphe_Fenetre.Show(Me)
+            Else
+                MsgBox("Merci d'installer Graphviz 2.8 dans ProgramFiles", MsgBoxStyle.Critical)
+                ChB_Graph.Checked = False
+            End If
+        Else
+            Graphe_Fenetre.Close()
+            System.IO.File.Delete(Environ("TMP") & "\RDP.jpg")
         End If
     End Sub
     Public Sub LienGraphe() Handles ReseauDePetri.ReseauChange
         If ChB_Graph.Checked = True Then
-            Graphe_Fenetre.ExecuterDot()
+            'Graphe_Fenetre.Close()
+            'If System.IO.File.Exists(Environ("TMP") & "\RDP_temp.jpg") Then
+            '    System.IO.File.Delete(Environ("TMP") & "\RDP_temp.jpg")
+            'End If
+            'Graphe_Fenetre.Show(Me)
+            'ReseauDePetri.EnregistrerDot()
+            'Graphe_Fenetre.ExecuterDot()
+            'Graphe_Fenetre.ActualiserGraphe()
         End If
     End Sub
 #End Region
