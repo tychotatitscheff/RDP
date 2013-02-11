@@ -88,9 +88,12 @@ Public Class Main
     Private Sub B_Go_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles B_Go.Click, LancerLaSimulationToolStripMenuItem.Click
         RTB_Console.AppendText(vbCrLf & "**** Début de la simulation ****" & vbCrLf)
         ReseauDePetri.GenererEtat("Initial")
-        ReseauDePetri.EnregistrerDot()
-        Graphe_Fenetre.ExecuterDot()
-        Graphe_Fenetre.ActualiserGraphe()
+        If ChB_Graph.Checked = True Then
+            ReseauDePetri.EnregistrerDot()
+            Graphe_Fenetre.DechargerGraphe()
+            Graphe_Fenetre.ExecuterDot()
+            Graphe_Fenetre.ActualiserGraphe()
+        End If
         RTB_Console.AppendText(vbCrLf)
         RTB_Console.SelectionIndent = 20
         ReseauDePetri.Maj_TransitionValidable()
@@ -99,6 +102,7 @@ Public Class Main
             Timer.Interval = TBK.Value
             Timer.Start()
             While ReseauDePetri.TableauTransitionValidable.Count > 0 And index < CInt(TB_etapeMax.Text) + 1
+                MsgBox("bip")
                 'Case d'attente
             End While
             Timer.Stop()
@@ -216,17 +220,16 @@ Public Class Main
                 ChB_Graph.Checked = False
             End If
         Else
+            Graphe_Fenetre.DechargerGraphe()
             Graphe_Fenetre.Close()
-            System.IO.File.Delete(Environ("TMP") & "\RDP.jpg")
         End If
     End Sub
     Public Sub LienGraphe() Handles ReseauDePetri.ReseauChange
         If ChB_Graph.Checked = True Then
-            'Graphe_Fenetre.Close()
+            'Graphe_Fenetre.DechargerGraphe()
             'If System.IO.File.Exists(Environ("TMP") & "\RDP_temp.jpg") Then
             '    System.IO.File.Delete(Environ("TMP") & "\RDP_temp.jpg")
             'End If
-            'Graphe_Fenetre.Show(Me)
             'ReseauDePetri.EnregistrerDot()
             'Graphe_Fenetre.ExecuterDot()
             'Graphe_Fenetre.ActualiserGraphe()
