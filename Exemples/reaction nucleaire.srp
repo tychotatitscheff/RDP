@@ -174,7 +174,7 @@
 			<Sens>TransitionVersPlace</Sens>
 		</Arc>
 		<Arc>
-			<Nom_de_la_place z:Ref="i10" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
+			<Nom_de_la_place z:Ref="i8" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
 			<Nom_de_la_transition z:Ref="i19" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" />
 			<Multiplicite>2</Multiplicite>
 			<Sens>TransitionVersPlace</Sens>
